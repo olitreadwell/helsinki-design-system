@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.4] - July, 6, 2026
+
+### Workspace
+
+#### Changed
+
+- [Dependencies] Monorepo-level dependency or tooling changes (resolutions, security patches, CI, etc.).
+
+### React
+
+#### Fixed
+
+- [Package] Restored dual ESM and CommonJS package output. Added conditional `exports` for `import` and `require` resolution, and corrected Rollup Babel runtime configuration so CommonJS bundles no longer emit broken helper imports.
+
+#### Added
+
+- [Select] Export TypeScript types from `hds-react`: `SelectProps`, `SelectCustomTheme`, `FilterFunction`, `SelectTextKey`, `SelectTexts`, `SelectTextProvider`, and `OptionIterator`. `SearchFunction` and `SearchResult` (shared with Search) are used for the `onSearch` prop.
+- [Search] Export TypeScript types from `hds-react`: `SearchCustomTheme`, `SearchResult`, `SearchTextKey`, `SearchTexts`, and `SearchTextProvider`. `SearchProps` is exported from the Search component. The existing `TextKey` export is unchanged.
+
+### Core
+
+#### Fixed
+
+- [Build] CSS-to-JS build step now writes separate ESM (`.js`), CommonJS (`.cjs`), and TypeScript (`.ts`) modules with correct file paths, and exposes conditional `exports` so bundlers and Node resolve the right format.
+
+### Hds-js
+
+#### Fixed
+
+- [Package] Added conditional `exports` mapping `import` and `require` to the ESM and CommonJS entry points, fixing broken module resolution in mixed ESM/CJS toolchains.
+
 ## [6.0.3] - June, 16, 2026
 
 ### Core
@@ -95,6 +126,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ##### Fixed
 
 - [Card] Text card fixed to be more responsive
+
+## [5.2.2] - July, 6, 2026
+
+### React
+
+#### Fixed
+
+- [Package] Restored dual ESM and CommonJS package output. Added conditional `exports` for `import` and `require` resolution, and corrected Rollup Babel runtime configuration so CommonJS bundles no longer emit broken helper imports.
+
+### Core
+
+#### Fixed
+
+- [Build] CSS-to-JS build step now writes separate ESM (`.js`), CommonJS (`.cjs`), and TypeScript (`.ts`) modules with correct file paths, and exposes conditional `exports` so bundlers and Node resolve the right format.
+
+### Hds-js
+
+#### Fixed
+
+- [Package] Added conditional `exports` mapping `import` and `require` to the ESM and CommonJS entry points, fixing broken module resolution in mixed ESM/CJS toolchains.
+
+## [5.2.1] - June, 16, 2026
+
+### Core
+
+#### Fixed
+
+- [Typography] Fixed italic rendering for Helsinki Grotesk Pro.
 
 ## [5.2.0] - May, 7, 2026
 
