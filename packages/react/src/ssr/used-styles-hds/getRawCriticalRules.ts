@@ -3,10 +3,10 @@
  * Some of the code was leaking to browser causing problems, so we copied the code instead of using the library as is.
  */
 import { kashe } from 'kashe';
-import memoizeOne from 'memoize-one';
 
 import { SingleStyleAst, StyleDefinition, StyleSelector, SelectionFilter, StyleChunk } from './types';
 import { convertStyleSelectorsToString } from './convertStyleSelectorsToString';
+import memoizeOne from './memoizeOne';
 
 type FlagType = Record<string, boolean>;
 
@@ -93,7 +93,7 @@ const astToStyles = kashe((styles: string[], def: StyleDefinition, filter?: Sele
   }));
 });
 
-const memoizedArray = memoizeOne((...args: string[]): string[] => args);
+const memoizedArray = memoizeOne<string[], string[]>((...args: string[]): string[] => args);
 
 const classPlaceholder = 'class="';
 const classPlaceholderLength = classPlaceholder.length;

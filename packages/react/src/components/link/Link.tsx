@@ -131,7 +131,7 @@ export const Link = ({
     iconEnd || external ? styles.hasIconEnd : '',
   );
 
-  const resolvedAriaLabel = external ? composeAriaLabel() : ariaLabel ?? undefined;
+  const resolvedAriaLabel = external ? composeAriaLabel() : (ariaLabel ?? undefined);
 
   return (
     <a

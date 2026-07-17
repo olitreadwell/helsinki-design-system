@@ -2,9 +2,12 @@
  * The code here is based on used-styles npm library: https://github.com/theKashey/used-styles
  * Some of the code was leaking to browser causing problems, so we copied the code instead of using the library as is.
  */
-import { AtRule as PostcssAtRule, parse, Rule } from 'postcss';
 import { str as crc32Str } from 'crc-32';
+import postcss, { AtRule as PostcssAtRule, Root, Rule } from 'postcss';
+import postcssNesting from 'postcss-nesting';
 
+import postcssImplicitNesting from '../postcssImplicitNesting.js';
+import memoizeOne from './memoizeOne';
 import {
   AtRule,
   CodeLocation,
@@ -26,6 +29,9 @@ interface FlattenFileOrder {
 type StyleFiles = Record<string, string>;
 
 const passAll = () => true;
+
+const flattenNestedCss = (css: string): Root =>
+  postcss([postcssImplicitNesting(), postcssNesting]).process(css, { from: undefined }).root;
 
 const flattenOrder = (order: string | boolean | number | null): number => {
   if (typeof order === 'number' || typeof order === 'string') {
@@ -206,8 +212,8 @@ const hashBody = (body: StyleBody) => {
   return hashString(JSON.stringify(body.rules));
 };
 
-const buildAst = (CSS: string, file = ''): SingleStyleAst => {
-  const root = parse(CSS);
+const buildAst = memoizeOne<[CSS: string, file?: string], SingleStyleAst>((CSS: string, file = ''): SingleStyleAst => {
+  const root = flattenNestedCss(CSS);
   const selectors: StyleSelector[] = [];
   const atRules: AtRule[] = [];
 
@@ -291,7 +297,7 @@ const buildAst = (CSS: string, file = ''): SingleStyleAst => {
     bodies,
     atRules,
   };
-};
+});
 
 const astFromFiles = (fileDate: StyleFiles): StyleAst =>
   Object.keys(fileDate).reduce((acc, file) => {

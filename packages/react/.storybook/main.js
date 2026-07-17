@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 const hdsCoreRoot = path.dirname(path.dirname(require.resolve('hds-core/lib/base.min.css')));
 
@@ -17,12 +16,17 @@ module.exports = {
     { from: '../src/components/cookieConsentCore/siteSettingsEditor', to: '/static-cookie-consent-editor' },
   ],
   webpackFinal: async (config) => {
-    // Expose FONT_URL env var to the browser bundle
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.env.FONT_URL': JSON.stringify(process.env.FONT_URL || ''),
-      }),
+    // Expose FONT_URL via Storybook's own DefinePlugin. Requiring `webpack`
+    // separately can load a different pnpm peer copy and crash with
+    // "compilation must be an instance of Compilation".
+    const definePlugin = config.plugins.find(
+      (plugin) => plugin?.definitions && typeof plugin.definitions === 'object',
     );
+    if (definePlugin) {
+      definePlugin.definitions['process.env.FONT_URL'] = JSON.stringify(
+        process.env.FONT_URL || '',
+      );
+    }
 
     // Add SCSS support for non-module .scss files
     config.module.rules.push({
