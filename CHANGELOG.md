@@ -31,7 +31,7 @@ Changes that are not related to specific components
 
 #### Fixed
 
-- [Component] What bugs/typos are fixed?
+- [ssr] Fixed `getCriticalHdsRules` and `hdsStyles` critical CSS extraction for components that use nested CSS. Nested selectors are now flattened during the build and when styles are parsed, so SSR can correctly match rules such as `.tag_hds-tag > span` and `.TextInput-module_root.TextInput-module_invalid label` instead of emitting broken fragments.
 
 ### Core
 
