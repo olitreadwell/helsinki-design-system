@@ -14,6 +14,8 @@ import json from '@rollup/plugin-json';
 import cssnano from 'cssnano';
 import postcss from 'rollup-plugin-postcss';
 import postcssImport from 'postcss-import';
+import postcssNesting from 'postcss-nesting';
+import postcssImplicitNesting from './src/ssr/postcssImplicitNesting.js';
 import { terser } from 'rollup-plugin-terser';
 import del from 'rollup-plugin-delete';
 import cssText from 'rollup-plugin-css-text';
@@ -90,6 +92,9 @@ const babelPlugins = (useESModules) => [
 const cssnanoOptions = {
   preset: ['default', { calc: false, svgo: false }],
 };
+
+/** Flatten native CSS nesting so bundled hdsStyles works with getCriticalHdsRules(). */
+const flattenNestedCssPlugins = [postcssImplicitNesting(), postcssNesting];
 
 /**
  * rollup-plugin-postcss ships cssnano@4, which breaks with PostCSS 8 and current SVGO.
@@ -256,7 +261,12 @@ const getConfig = (format, extractCSS) => ({
       use: [],
       syntax: postcssScssSyntax,
       minimize: false,
-      plugins: [sassModernPlugin, postcssImport(), ...(extractCSS ? [] : [cssnano(cssnanoOptions)])]
+      plugins: [
+        sassModernPlugin,
+        postcssImport(),
+        ...flattenNestedCssPlugins,
+        ...(extractCSS ? [] : [cssnano(cssnanoOptions)]),
+      ],
     }),
     extractCSS ? minifyExtractedCssAsset() : undefined,
     terser(),
