@@ -19,13 +19,7 @@ export enum NotificationSize {
 }
 
 export type NotificationPosition =
-  | 'inline'
-  | 'top-left'
-  | 'top-center'
-  | 'top-right'
-  | 'bottom-left'
-  | 'bottom-center'
-  | 'bottom-right';
+  'inline' | 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
 
 type CommonProps = React.PropsWithChildren<
   Omit<AllElementPropsWithRef<'section'>, 'ref'> & {

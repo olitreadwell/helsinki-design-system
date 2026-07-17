@@ -213,17 +213,13 @@ export const SearchInput = ({
   const { open } = dataHandlers.getData();
 
   // Expose both the input element and submit method via ref
-  useImperativeHandle(
-    ref,
-    () => {
-      const inputElement = inputRef.current as SearchInputHandle;
-      if (inputElement) {
-        inputElement.submit = handleSearch;
-      }
-      return inputElement;
-    },
-    [handleSearch],
-  );
+  useImperativeHandle(ref, () => {
+    const inputElement = inputRef.current as SearchInputHandle;
+    if (inputElement) {
+      inputElement.submit = handleSearch;
+    }
+    return inputElement;
+  }, [handleSearch]);
 
   // Determine if history info should be announced (history available + input empty)
   const hasHistory = searchHistory.length > 0;
