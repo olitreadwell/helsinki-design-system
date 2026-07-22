@@ -31,7 +31,7 @@ Changes that are not related to specific components
 
 #### Fixed
 
-- [Select] Removed the fixed bottom margin from the select box, fixing uneven row heights in grids and button misalignment. Spacing is now carried by `margin-top` on the assistive and error texts, matching TextInput.
+- [Select][Search] Removed the fixed bottom margin from the select box, fixing uneven row heights in grids and button misalignment. Spacing is now carried by `margin-top` on the assistive and error texts, matching TextInput.
 
 ### Core
 
