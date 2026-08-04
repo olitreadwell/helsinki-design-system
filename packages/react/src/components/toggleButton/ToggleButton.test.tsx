@@ -60,4 +60,13 @@ describe('<ToggleButton /> spec', () => {
     const element = getByTestId(buttonProps['data-testid']);
     expect(getElementAttributesMisMatches(element, buttonProps)).toHaveLength(0);
   });
+
+  it('is disabled when the disabled prop is true and does not call onChange on click', async () => {
+    const onChange = jest.fn();
+    render(<ToggleButton id="toggle-button" checked={false} disabled onChange={onChange} label="Test label" />);
+    const button = screen.getByRole('button');
+    expect(button).toBeDisabled();
+    await userEvent.click(button);
+    expect(onChange).not.toHaveBeenCalled();
+  });
 });
