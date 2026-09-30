@@ -10,7 +10,7 @@ Send pull requests to `development` branch. Right now all pull requests are welc
 
 2. Set up your local development environment by following the steps in [DEVELOPMENT.md](/DEVELOPMENT.md), disregarding the cloning part.
 
-3. Create a new branch with prefix `hds-<Ticket number>` if you have a ticket number, otherwise just use prefix `feature/` or `fix/` whichever is more approriate. When submitting large changes split them into light and coherent parts. This sometimes requires sending in multiple PRs. Remember to use short and descriptive commit messages e.g. "Add rotate property for Koros component".
+3. Create a new branch with prefix `hds-<Ticket number>` if you have a ticket number, otherwise just use prefix `feature/` or `fix/` whichever is more appropriate. When submitting large changes split them into light and coherent parts. This sometimes requires sending in multiple PRs. Remember to use short and descriptive commit messages e.g. "Add rotate property for Koros component".
 
     * Feature – If you intend to change the public API or introduce a new feature.
 
