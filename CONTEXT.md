@@ -1,5 +1,5 @@
 # City-of-Helsinki/helsinki-design-system context
-> refreshed 2026-09-30 | upstream default: development @ a9fb54575 | fork default: development @ a9fb54575 (fork == upstream)
+> refreshed 2026-10-11 | upstream default: development @ 28c67fdf2 | fork default: development @ 28c67fdf2 (fork == upstream)
 
 ## Identity & policies
 - upstream: City-of-Helsinki/helsinki-design-system. Default branch `development` (both upstream and the fork). Primary languages: TypeScript / SCSS / MDX. English-first: yes (README, CONTRIBUTING, docs site, issues and PRs are all English).
@@ -24,12 +24,13 @@
 - mrTuomoK (most active: merges + releases + most feature work), timwessman, Riippi (docsite fixes), mikkojamG. Response latency to outsiders not measured this run.
 
 ## Issue-area health
-- cookie-consent docs are being edited by two open maintainer PRs: #1710 (mrTuomoK, rewrites the API-tables region `api.mdx` lines 25-53) and #1711 (mrTuomoK, `api.mdx` lines 125-145 and 212-225). Neither touches lines 160 or 228.
-- docsite links are an actively-fixed area (all Riippi, 2026-08): #1694 routes, #1695 storybook links, #1696 anchors, #1698 visited-link styles.
+- cookie-consent docs are being edited by one open maintainer PR: #1711 (mrTuomoK, `api.mdx` lines 125-145 and 212-225). #1710 is no longer open. Neither touches lines 160 or 228.
+- docsite links are an actively-fixed area (all Riippi, 2026-08): #1694 routes, #1695 storybook links, #1696 anchors, #1698 visited-link styles. Riippi #1697 (`fix/HDS-2899-select-margin`) still open.
 - `card/code.mdx` is claimed by #1682 ("DO NOT MERGE AND/OR REVIEW docs: create a card-link example", mrTuomoK).
 
 ## Gap ledger (dedupe — READ FIRST, never re-pick)
 - `2026-09-30` self-found trivial cleanup — outcome pr-opened (fork) — typos + 2 dead links + malformed Storybook query strings, 10 files. Lesson: this set is done; do not re-fix these lines.
+- `2026-10-11` self-found trivial cleanup — outcome pr-opened (fork #8, base `development`, branch `fix/docs-typos-and-broken-links`, commit 5a48dfaa, 10 files +11/-11) — 3 broken refs + 8 one-word typos. Lesson: already fixed — `README.md` "Before contributing" link (closing `**` was inside the URL), `ISSUE_TEMPLATE/feature_request.md` `/contributing` -> `/getting-started/contributing/how-to-contribute`, `components/text-area/code.mdx` `textArea` -> `textarea`; typos precise/available/user/synchronous/asynchronous(×2)/designer/unifying. Fork PR #7 (`fix/docs-typos-and-links`) is a separate earlier pass with no line overlap. Do not re-fix these lines.
 
 ## Mined gaps (discovered, not yet attempted)
 - `2026-09-30` `site/src/docs/components/card/code.mdx` (2×) and `site/src/docs/components/highlight/code.mdx` (2×): `href="/storybook/react/?path=?path=/story/..."` duplicates the `path` query param; the other 142 storybook links use the single `?path=/story/...` form. Skipped this pass (would have pushed the diff past the 10-file cap); card/code.mdx is also claimed by #1682. status: proposed
