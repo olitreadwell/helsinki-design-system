@@ -159,7 +159,7 @@ Note: the React context, hooks, and components always set `submitEvent` to `true
 
 Events are dispatched with `window.dispatchEvent` and can be listened with `window.addEventListener`. Events are dispatched in React and vanilla-js versions.
 
-#### Properties of the custon window events
+#### Properties of the custom window events
 
 | Property                                      | Description                                         | Type                                                                      | Default                                    |
 | --------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------ |
@@ -227,7 +227,7 @@ When events are used, the changes done by the user should be handled with <Inter
 
 ### React context
 
-The recommended way to use cookie consents in React is with the `CookieConsentContext`. The context compares stored consents to the site settings and does not render its children until consents are parsed. This is an asyncronous operation and ensures consents are always available to all child components.
+The recommended way to use cookie consents in React is with the `CookieConsentContext`. The context compares stored consents to the site settings and does not render its children until consents are parsed. This is an asynchronous operation and ensures consents are always available to all child components.
 
 ```jsx
 import { CookieConsentContextProvider, CookieConsentChangeEvent } from 'hds-react';

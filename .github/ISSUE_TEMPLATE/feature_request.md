@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 <!--
-Before you are requesting a new feature, please refer to current HDS Contribution guidelines (https://hds.hel.fi/contributing) and check if the feature is already on the HDS Roadmap (https://hds.hel.fi/about/roadmap).
+Before you are requesting a new feature, please refer to current HDS Contribution guidelines (https://hds.hel.fi/getting-started/contributing/how-to-contribute) and check if the feature is already on the HDS Roadmap (https://hds.hel.fi/about/roadmap).
 -->
 
 ## What
