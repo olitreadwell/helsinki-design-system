@@ -54,13 +54,13 @@ The following steps are required for user authentication:
 
 Logging in or out of an OIDC server requires browser redirections to the server and back. User interfaces only show login and logout buttons. No other form elements are needed.
 
-The `login` call is asyncronous and may fail if the OIDC server is offline or the service URL is not registered. The user interface must indicate loading has started, and possible errors must be handled by the user interface.
+The `login` call is asynchronous and may fail if the OIDC server is offline or the service URL is not registered. The user interface must indicate loading has started, and possible errors must be handled by the user interface.
 
 The <InternalLink href="/patterns/login/building-login/#header-login-button">HDS Header Login button</InternalLink> handles all of these scenarios.
 
 #### Log out process
 
-Log out is almost identical to the log in process. It is also asyncronous and may fail.
+Log out is almost identical to the log in process. It is also asynchronous and may fail.
 
 The <InternalLink href="/patterns/login/building-login/#header-logout-button">HDS Header Logout button</InternalLink> handles all of these scenarios.
 
