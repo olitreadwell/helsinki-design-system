@@ -47,13 +47,13 @@ Or just one element
 
 # Made for BEM
 
-The arguments of the `multi-sass` mixins match the entities in the BEM methology used in HDS. Some special cases, like themes, variants and media queries require more fine-tuning, so there are alo arguments unrelated to BEM.
+The arguments of the `multi-sass` mixins match the entities in the BEM methodology used in HDS. Some special cases, like themes, variants and media queries require more fine-tuning, so there are also arguments unrelated to BEM.
 
-BEM methology has three entities: "block", "modifier" and "element" which are also argument names in `multi-sass`.
+BEM methodology has three entities: "block", "modifier" and "element" which are also argument names in `multi-sass`.
 
 Every component is a "block" entity in HDS. "Modifier" is usually a variant of the component. "Element" is a child element inside the component.
 
-[Read more about bem methology](https://en.bem.info/methodology/).
+[Read more about BEM methodology](https://en.bem.info/).
 
 # Made for multi-purpose output
 
@@ -124,7 +124,7 @@ $alias: (
 
 ```
 
-Note that delimeters ("\_\_" or "--") are not appended to aliases.
+Note that delimiters ("\_\_" or "--") are not appended to aliases.
 
 # Special new entity "content"
 
@@ -203,7 +203,7 @@ If the value is a map, it has name/rule pairs that names explicitly what modifie
 
 ### The "modifiers" rule
 
-Defines which modifers are outputted. By default all modifiers are outputted.
+Defines which modifiers are outputted. By default all modifiers are outputted.
 
 The value can be a boolean, string or map. The map can be a nested map. Nested map is considered to contain rules for elements inside the modifier.
 
@@ -239,7 +239,7 @@ $modifiers: (
 $modifiers: 'modifierA';
 ```
 
-If an modifier is explicity allowed, all other modifiers are disallowed. Unless also allowed explicitly.
+If an modifier is explicitly allowed, all other modifiers are disallowed. Unless also allowed explicitly.
 
 Disallowing 'modifierB' is not necessary here:
 
@@ -394,7 +394,7 @@ The output is controlled with rules. Rules allow or disallow entities and theref
 
 The blocks of `@include`s in a scss form a nested hierarchy. The same hierarchy followed in `multi-sass`. Each `@include` is called a "level" in the code. Levels have a type (block, modifier, element, etc.) and a name.
 
-Everytime a level is being processed the rules are checked if the type and name are allowed in the rules. If not, the level or none of its child levels are outputted.
+Every time a level is being processed the rules are checked if the type and name are allowed in the rules. If not, the level or none of its child levels are outputted.
 
 Levels are also used for finding the closest type of entity and getting parent selector to append to.
 
@@ -526,7 +526,7 @@ Shorthand to create a compound selector from closest block and a modifier. Calls
 
 ### descendant-modifier-element
 
-Copies closest modifier and apppends an element to it and appends selector as a descendant.
+Copies closest modifier and appends an element to it and appends selector as a descendant.
 
 ```css
 @include modifier('mod1') {
@@ -648,11 +648,11 @@ The prefix used when creating the block level selector. The selector is `.<$bloc
 
 ### modifierDelimeter
 
-The delimeter used when creating a modifier level selector. The selector is `.<parent selector><$modifierDelimeter><$modifier>`. Default is "--".
+The delimiter used when creating a modifier level selector. The selector is `.<parent selector><$modifierDelimeter><$modifier>`. Default is "--".
 
 ### elementDelimeter
 
-The delimeter used when creating an element level selector. The selector is `.<parent selector><$elementDelimeter><$element>`. Default is "\_\_".
+The delimiter used when creating an element level selector. The selector is `.<parent selector><$elementDelimeter><$element>`. Default is "\_\_".
 
 ### alias
 

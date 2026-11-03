@@ -21,7 +21,7 @@ export default ({ children, pageContext }) => <TabsLayout pageContext={pageConte
 
 ### Principles
 - **Tags are meant for presenting object attributes and filters.** If you are presenting status information, use <InternalLink href="/components/status-label">Status label component</InternalLink> instead.
-- Keep labels short and concise. Use 1-2 words at maximum and avoid labels expanding to two rows. If the Tag is too long, not fitting the avaialble space, it automatically truncates the label.
+- Keep labels short and concise. Use 1-2 words at maximum and avoid labels expanding to two rows. If the Tag is too long, not fitting the available space, it automatically truncates the label.
   - If for some reason, a long label is needed, `multiline` prop can be used to allow spanning onto multiple lines.
 - Keep an 8px minimum space between tags.
 - Tags almost always appear in a group and are often related to some other element on the page (e.g. card or search page as filters). Aim to keep tags and their related elements close to each other so the user can easily interpret the relation.
