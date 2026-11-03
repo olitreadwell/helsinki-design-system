@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 ## Question
-> Describe your issue. Be as precice as possible.
+> Describe your issue. Be as precise as possible.
 
 ## Additional context
 > Add any other context about the problem here. You may also attach screenshots or links if needed.
