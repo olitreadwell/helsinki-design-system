@@ -31,7 +31,7 @@ Changes that are not related to specific components
 
 #### Fixed
 
-- [Component] What bugs/typos are fixed?
+- [Accordion] The toggle button has `aria-controls` that points to the accordion content.
 
 ### Core
 
@@ -67,11 +67,11 @@ Changes that are not related to specific components
 
 Changes that are not related to specific components
 
-- [Component] What has been changed
+- [Hero] Clarified in the principles and accessibility guidelines that the hero should be placed inside the `<main>` element.
 
 #### Fixed
 
-- [Component] What bugs/typos are fixed?
+- Fixed blank pages in the archived documentation versions
 
 ### Figma
 
