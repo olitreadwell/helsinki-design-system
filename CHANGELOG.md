@@ -34,6 +34,14 @@ Changes that are not related to specific components
 - [Accordion] The toggle button has `aria-controls` that points to the accordion content.
 - [Tabs] Selecting a tab with the space key no longer scrolls the page.
 - [Checkbox] Leaving out `checked` makes the checkbox uncontrolled, so `defaultChecked` sets the initial state and the checkbox can be toggled without `checked`.
+- [Breadcrumb] The current page item has `aria-current="page"` instead of `"true"`.
+- [Checkbox, NumberInput, PasswordInput, RadioButton, TextArea, TextInput] A given `aria-describedby` is combined with the ids of the helper, error, success and info texts instead of replacing them.
+- [Card] The padding properties of `theme` are optional, so a custom theme can be given without them.
+- [Accordion] The close button color is based on `--content-color` instead of the undefined `--content-font-color`.
+- [Accordion] The close button no longer uses the deprecated `onKeyPress`. It relies on `onClick`, which native buttons also fire for Enter and Space, so the behaviour is unchanged.
+- [DateInput] Enter is handled in `onKeyDown` instead of the deprecated `onKeyPress`. A consumer `onKeyDown` is still called, and Enter that confirms an IME composition no longer commits the value.
+- [Linkbox] Enter is handled in `onKeyDown` instead of the deprecated `onKeyPress`. It is skipped when a consumer handler has called `preventDefault()` or an IME composition is in progress.
+- [HeaderActionBar] The title and logo use `onKeyDown` instead of the deprecated `onKeyPress` for Enter and Space.
 
 ### Core
 
@@ -54,6 +62,7 @@ Changes that are not related to specific components
 #### Fixed
 
 - [Notification] Notification styles are compiled into `components/all.css` and `components/all.min.css` again.
+- [StatusLabel] Font weight set to 500 to match Tag.
 
 ### Documentation
 
